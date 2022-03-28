@@ -1,0 +1,12 @@
+.logo {
+  margin: 16px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  text-align: center;
+  align-items: center;
+}
+
+.site-layout-background {
+  background: #fff;
+}

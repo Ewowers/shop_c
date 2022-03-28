@@ -1,13 +1,108 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body::-webkit-scrollbar {
+  width: 3px; /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: #ffffff; /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #000000; /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: 3px solid 000000; /* padding вокруг плашки */
+}
+html {
+  overflow-y: scroll;
+  scrollbar-color: #000 #fff;
+  scrollbar-width: thin;
+}
+.color-gray {
+  color: rgba(116, 116, 116, 1);
+}
+header .search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  float: right;
+  width: 100%;
+}
+header .search input {
+  width: 0;
+  padding: 0;
+  border: none;
+  outline: none !important;
+}
+header .search #search {
+  padding: 5px;
+  background: #f5f7ff;
+
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+header .search:hover input {
+  width: 100%;
+  border: 1px solid;
+  padding: 0px 7px;
+}
+header .basket-icon {
+  padding: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header .navbar ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+header .navbar ul li {
+  list-style: none;
+}
+header .navbar ul li a {
+  color: #000;
+  font-size: 16px;
+}
+header .logo {
+  font-size: 32px;
+}
+
+.box-shadow {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+}
+
+.filter {
+  height: 100vh;
+  padding: 10px;
+}
+
+.filter-title {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  color: rgba(116, 116, 116, 1);
+  margin-bottom: 30px;
+}
+.filter .parenInput {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 42px;
+  padding: 5px 10px;
+}
+.filter .label {
+  font-size: 12px;
+  margin-left: 10px;
+  display: block;
+  color: rgba(116, 116, 116, 1);
+}
+.filter .input {
+  width: 90%;
+  display: block;
+  margin: auto;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none !important;
+}
+.filter .filter-button {
+  border-radius: 10;
+  background: #fff;
+  border-width: 0;
+  cursor: pointer;
 }

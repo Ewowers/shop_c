@@ -1,0 +1,39 @@
+.card-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card {
+  width: 240px;
+}
+.card img {
+  width: 100%;
+}
+.card .in-stock {
+  color: #78a962;
+}
+
+.card .card-title {
+  font-weight: bold;
+  margin: 0;
+}
+.card .card-before-prise {
+  margin: 0;
+  font-size: 12px;
+  position: relative;
+  width: max-content;
+}
+.card .card-before-prise::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+  transform: translate(-50%, -50%);
+}
+.card .card-prise {
+  margin: 0;
+  font-weight: bold;
+}

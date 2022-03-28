@@ -1,0 +1,14 @@
+.ant-tabs-nav-list {
+  width: 100%;
+  justify-content: space-between;
+  color: #4b3a5ab2;
+}
+.ant-tabs-tab.ant-tabs-tab-active * {
+  color: #000 !important;
+}
+.ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+  background-color: #000;
+}
+.ant-tabs-tab:hover {
+  color: #000 !important;
+}
