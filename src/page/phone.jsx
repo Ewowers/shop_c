@@ -15,6 +15,7 @@ function PhonePage() {
   let getPhones = () => {
     get("/api/product/phone").then((res) => setPhones(res));
   };
+  console.log(phones);
   useEffect(getPhones, []);
   return (
     <div>

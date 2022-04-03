@@ -79,9 +79,11 @@ const Edit = ({ form, state, setState, get }) => {
     delete body.information.beforePrise;
     delete body.information.stock;
     delete body.information.category;
-    update("/api/product", body).then((res) => {
-      get();
-    });
+    update("/api/product", body)
+      .then((res) => {
+        get();
+      })
+      .then((res) => setState(false));
   };
   const onFinishFailed = (values) => {
     console.log(values);
@@ -90,6 +92,11 @@ const Edit = ({ form, state, setState, get }) => {
   return (
     <Drawer visible={state} onClose={onclose}>
       <Form name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed} layout="vertical" form={form}>
+        <Form.Item name="upload" label="Картинка товара" valuePropName="fileList" getValueFromEvent={normFile}>
+          <Upload name="image" maxCount={1} customRequest={false} listType="picture">
+            <Button icon={<UploadOutlined />}>Click to upload</Button>
+          </Upload>
+        </Form.Item>
         <Form.Item label="Название" name="_id" style={{ display: "none" }}>
           <Input />
         </Form.Item>
@@ -125,6 +132,7 @@ const CreateProduct = ({ state, setState, get }) => {
   const ok = () => submit.current.click();
   const onFinish = (values = []) => {
     let body = {
+      image: values.upload[0].thumbUrl,
       title: values.title,
       prise: values.prise,
       beforePrise: values.beforePrise,

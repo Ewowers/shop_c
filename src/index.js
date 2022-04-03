@@ -5,10 +5,29 @@ import "./component.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+const defaultState = JSON.parse(localStorage.getItem("basket")) || { cash: 0 };
+const reducer = (state = defaultState, action) => {
+  console.log(action);
+  switch (action.type) {
+    case "TYPE_CREATE":
+      let local = { ...defaultState, ...action.obj };
+      localStorage.setItem("basket", JSON.stringify(local));
+      return local;
+      break;
+    case "TYPE_DESTROY":
+      return { ...defaultState, message: "remove" };
+      break;
+  }
+};
+const store = createStore(reducer);
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );
 

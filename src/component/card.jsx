@@ -1,6 +1,13 @@
 import image from "../image/image 29(1).png";
-import { CheckCircleOutlined, StarFilled } from "@ant-design/icons";
-function Card({ title, stock, reviews, prise, beforePrise }) {
+import { Button, Space } from "antd";
+import { CheckCircleOutlined, StarFilled, ShoppingCartOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+function Card({ image, title, stock, reviews, prise, beforePrise }) {
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state);
+  const add = () => {
+    dispatch({ type: "TYPE_CREATE", obj: { title, que: 1, prise, image: image } });
+  };
   const inStock = (
     <span className="in-stock">
       <CheckCircleOutlined /> in stock
@@ -28,7 +35,12 @@ function Card({ title, stock, reviews, prise, beforePrise }) {
       <Stat reviews={reviews} />
       <p className="card-title">{title}</p>
       {beforePrise ? before : null}
-      <p className="card-prise">₸{prise}</p>
+      <div className="card-footer">
+        <p className="card-prise">₸{prise}</p>
+        <button className="card-add" onClick={add}>
+          <ShoppingCartOutlined />
+        </button>
+      </div>
     </div>
   );
 }
